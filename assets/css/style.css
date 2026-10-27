@@ -1072,3 +1072,13 @@ body.on-blue .rail a i{background:var(--line)!important}
 /* 公司名一列加宽，避免折行；字号微调 */
 .sec--cv .cv{grid-template-columns:132px minmax(0,352px) minmax(0,1fr)}
 .cv-org{font-size:clamp(17px,1.55vw,23px)}
+
+/* 矮屏：作品行再收一点，保证七行带说明也在一屏内 */
+@media (max-height:840px) and (min-width:901px){
+  .work{padding:2px 0}
+  .w-title{font-size:14px}
+  .w-meta{font-size:10px;margin-top:2px}
+  .work-note{font-size:11px;line-height:1.5;margin-top:3px!important}
+  .w-play{font-size:15px}
+  .w-play em{font-size:8.5px;margin-bottom:1px}
+}
