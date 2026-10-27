@@ -1025,3 +1025,11 @@ body.on-blue .rail a i{background:var(--line)!important}
   margin-top:auto;padding-top:14px;border-top:1px solid var(--line);
   grid-template-columns:132px minmax(0,1fr)
 }
+
+/* 累计播放前缀「约」 */
+.sh-p{
+  font-family:var(--serif);font-size:clamp(20px,2vw,34px);
+  color:var(--muted);align-self:flex-start;padding-top:clamp(6px,1.4vh,16px);margin-right:6px
+}
+
+.cs-p{font-family:var(--serif);font-size:clamp(13px,1.2vw,18px);color:var(--muted);margin-right:4px;align-self:flex-start;padding-top:4px}

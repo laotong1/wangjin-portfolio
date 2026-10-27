@@ -15,7 +15,7 @@ window.SITE = {
   netdisk: "https://pan.baidu.com/s/1AmwV9ru76oMEKsYk8qQvGw?pwd=85tn",
 
   stats: [
-    { n: 4.16, dec: 2, suffix: "亿", label: "累计播放", sub: "6 部执导作品 · 抖音主账号" },
+    { n: 5, prefix: "约", suffix: "亿", label: "累计播放", sub: "6 部执导作品 · 全网合计" },
     { n: 3.06, dec: 2, suffix: "亿", label: "单部最高", sub: "《妻子与陪伴机器人的秘密》" },
     { n: 1930, suffix: "万", label: "海外最高", sub: "《以牙还牙》DramaBox · 收藏 754K" },
     { n: 10, suffix: "部", label: "导演作品", sub: "国内 6 部 · 海外 4 部" }
@@ -99,7 +99,7 @@ window.SITE = {
   timeline: [
     { year: "2026", from: "2026.01", to: "2026.10", org: "北京星火剧能网络科技有限公司", title: "AI 短剧导演",
       points: [
-        "独立执导 6 部国内短剧，加起来 4.16 亿播放",
+        "独立执导 6 部国内短剧，全网合计约 5 亿播放",
         "4 部海外剧上线 DramaBox，最高一部 1930 万",
         "有一部海外剧，从选题到交付是一个人做完的"
       ] },

@@ -34,7 +34,7 @@
     var cs = $("#coverStats");
     if (cs) cs.innerHTML = S.stats.map(function (s) {
       return '<div class="cs">' +
-        '<p class="cs-v"><span class="cs-n" data-n="' + s.n + '" data-dec="' + (s.dec || 0) + '">0</span><span class="cs-s">' + esc(s.suffix) + "</span></p>" +
+        '<p class="cs-v">' + (s.prefix ? '<span class="cs-p">' + esc(s.prefix) + "</span>" : "") + '<span class="cs-n" data-n="' + s.n + '" data-dec="' + (s.dec || 0) + '">0</span><span class="cs-s">' + esc(s.suffix) + "</span></p>" +
         '<p class="cs-l">' + esc(s.label) + "</p>" +
         '<p class="cs-sub">' + esc(s.sub) + "</p>" +
         "</div>";
@@ -47,6 +47,7 @@
       sg.innerHTML =
         '<div class="stat-hero">' +
           '<p class="sh-v">' +
+            (hero.prefix ? '<span class="sh-p">' + esc(hero.prefix) + "</span>" : "") +
             '<span class="stat-n" data-n="' + hero.n + '" data-dec="' + (hero.dec || 0) + '">0</span>' +
             '<span class="sh-s">' + esc(hero.suffix) + "</span>" +
           "</p>" +
