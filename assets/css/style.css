@@ -1049,3 +1049,26 @@ body.on-blue .rail a i{background:var(--line)!important}
 @media (max-width:900px){
   .w-play em{text-align:left;margin-bottom:2px}
 }
+
+/* 工作经历：字号整体放大 */
+.sec--cv .cv{padding:clamp(16px,2.8vh,30px) 0}
+.cv-time{font-size:clamp(12px,1vw,13.5px);letter-spacing:.02em;color:var(--muted)}
+.cv-org{font-size:clamp(18px,1.72vw,25px);line-height:1.32}
+.cv-title{font-size:clamp(12.5px,1.05vw,14.5px);margin-top:5px;color:var(--zhe)}
+.cv-pts{gap:5px}
+.cv-pts li{font-size:clamp(13px,1.05vw,15px);line-height:1.72;padding-left:16px}
+.cv-pts li::before{top:.82em;width:7px}
+.edu-v{font-size:clamp(18px,1.6vw,23px)}
+.edu-s{font-size:clamp(12px,1vw,13.5px)}
+.edu-k{font-size:clamp(11px,.9vw,12.5px)}
+@media (max-height:840px) and (min-width:901px){
+  .sec--cv .cv{padding:8px 0}
+  .cv-org{font-size:clamp(15px,1.4vw,19px)}
+  .cv-pts li{font-size:12.5px;line-height:1.6}
+  .cv-title{font-size:11.5px}
+  .edu-v{font-size:17px}
+}
+
+/* 公司名一列加宽，避免折行；字号微调 */
+.sec--cv .cv{grid-template-columns:132px minmax(0,352px) minmax(0,1fr)}
+.cv-org{font-size:clamp(17px,1.55vw,23px)}
