@@ -78,7 +78,7 @@
           '<p class="w-meta">' + (w.eps ? w.eps + " 集" : "") +
             "　·　" + esc(w.genre) + "　·　" + esc(w.role) + "</p>" +
         "</div>" +
-        '<span class="w-play">' + esc(w.play) + "</span>" +
+        '<span class="w-play"><em>仅抖音</em>' + esc(w.play) + "</span>" +
         '<p class="work-note">' + esc(w.note) + "</p>" +
         "</li>";
     }).join("");
@@ -186,6 +186,17 @@
     });
   }
 
+
+  /* 视频高度 = 作品列高度，顶部与分割线齐平 */
+  function syncStageHeight() {
+    var list = document.querySelector(".works");
+    var media = document.querySelector(".stage-media");
+    if (!list || !media) return;
+    if (window.matchMedia("(max-width:900px)").matches) { media.style.height = ""; return; }
+    var h = Math.round(list.getBoundingClientRect().height);
+    if (h > 120) media.style.height = h + "px";
+  }
+
   function setupStage() {
     if (!$("#stageMedia")) return;
     renderStage(0);
@@ -206,6 +217,9 @@
       row.addEventListener("focus", function () { renderStage(i); });
       row.addEventListener("click", function () { renderStage(i); });
     });
+    syncStageHeight();
+    window.addEventListener("resize", syncStageHeight);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(syncStageHeight);
   }
 
   /* 左侧章节轨 */

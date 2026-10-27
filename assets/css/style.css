@@ -1033,3 +1033,19 @@ body.on-blue .rail a i{background:var(--line)!important}
 }
 
 .cs-p{font-family:var(--serif);font-size:clamp(13px,1.2vw,18px);color:var(--muted);margin-right:4px;align-self:flex-start;padding-top:4px}
+
+/* 作品页：顶对齐 + 视频撑满作品列高度 */
+.works-layout{align-items:start}
+.stage{align-self:stretch;display:flex;flex-direction:column}
+.stage-media{height:auto;width:auto;aspect-ratio:9/16;align-self:flex-end}
+
+/* 播放量前的「仅抖音」 */
+.w-play em{
+  display:block;font-family:var(--mono);font-style:normal;
+  font-size:9.5px;letter-spacing:.12em;color:var(--muted);
+  text-align:right;margin-bottom:3px;font-weight:400
+}
+.work.is-active .w-play em,.work:hover .w-play em{color:rgba(251,250,247,.55)}
+@media (max-width:900px){
+  .w-play em{text-align:left;margin-bottom:2px}
+}
