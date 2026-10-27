@@ -909,3 +909,119 @@ body.on-blue .rail a i{background:var(--line)!important}
 .w-title{font-size:clamp(16px,1.42vw,22px);line-height:1.3}
 .w-meta{margin-top:4px;font-size:11.5px}
 .work-note{font-size:12px;line-height:1.55;margin-top:4px!important}
+
+/* =========================================================
+   v5
+   ========================================================= */
+
+/* 1. 海外再透一档 */
+.sec--overseas{background:rgba(21,23,26,.76)}
+.sec--overseas .sec-title{color:rgba(251,250,247,.92)}
+.sec--overseas .sec-sub{color:rgba(251,250,247,.48)}
+.ov-t{color:rgba(251,250,247,.9)}
+.ov-zh{color:rgba(251,250,247,.5)}
+.ov-meta{color:rgba(251,250,247,.4)}
+.ov-play,.ov-save{color:rgba(251,250,247,.88)}
+.ov-play span,.ov-save span{color:rgba(251,250,247,.38)!important}
+.ov-row,.ov-row:first-child{border-color:rgba(251,250,247,.12)}
+
+/* 2. 经历：更紧 */
+.cv-list{gap:0 clamp(28px,3vw,52px)}
+.cv{grid-template-columns:92px minmax(0,1fr);gap:0 14px;padding:clamp(6px,1.1vh,11px) 0}
+.cv-time{font-size:11px;letter-spacing:.02em}
+.cv-org{font-size:clamp(15px,1.28vw,18px);line-height:1.35}
+.cv-title{font-size:11.5px;margin-top:3px}
+.cv-pts{margin-top:6px;gap:2px}
+.cv-pts li{font-size:11.5px;line-height:1.6}
+.edu{grid-template-columns:92px minmax(0,1fr);padding-top:10px;margin-top:10px}
+.edu-v{font-size:clamp(15px,1.3vw,18px)}
+.edu-s{font-size:11.5px;margin-top:4px}
+
+/* 3. 数据页：一个大数 + 三条细目 */
+.sec--stats .stat-grid{
+  display:grid;grid-template-columns:1.05fr .95fr;
+  gap:0 clamp(30px,4vw,80px);align-items:start;
+  border-top:1px solid var(--ink);padding-top:clamp(16px,3vh,34px)
+}
+.stat-hero{border-right:1px solid var(--line);padding-right:clamp(24px,3vw,56px)}
+.sh-v{display:flex;align-items:baseline;gap:6px;font-family:var(--serif);font-weight:700;line-height:.9}
+.sh-v .stat-n{font-size:clamp(84px,10.5vw,168px);letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.sh-s{font-size:clamp(26px,3vw,48px);color:var(--zhe)}
+.sh-l{font-size:clamp(15px,1.3vw,18px);margin-top:clamp(12px,2vh,20px)}
+.sh-sub{font-size:12px;color:var(--muted);margin-top:4px}
+
+.stat-side{display:flex;flex-direction:column;justify-content:space-between;height:100%}
+.sr{
+  display:grid;grid-template-columns:auto 1fr;align-items:baseline;gap:0 20px;
+  padding:clamp(12px,2.2vh,22px) 0;border-bottom:1px solid var(--line)
+}
+.sr:first-child{border-top:1px solid var(--line)}
+.sr-v{display:flex;align-items:baseline;gap:3px;font-family:var(--serif);font-weight:700;min-width:5.2em}
+.sr-v .stat-n{font-size:clamp(30px,3.4vw,54px);line-height:1;font-variant-numeric:tabular-nums}
+.sr-s{font-size:clamp(14px,1.5vw,22px);color:var(--zhe)}
+.sr-l{font-size:12.5px;color:var(--muted);text-align:right;line-height:1.5}
+.sr-sub{display:none}
+
+/* 矮屏 */
+@media (max-height:840px) and (min-width:901px){
+  .sh-v .stat-n{font-size:clamp(64px,8vw,120px)}
+  .sr-v .stat-n{font-size:clamp(24px,2.8vw,40px)}
+  .cv{padding:4px 0}
+  .cv-pts li{font-size:10.5px;line-height:1.5}
+}
+
+/* v5 修：数据页与经历页不再被 space-between 撑开 */
+.sec--stats{justify-content:flex-start}
+.sec--stats .stat-grid{flex:0 0 auto}
+.stat-side{justify-content:flex-start;height:auto}
+.sr{padding:clamp(14px,2.4vh,24px) 0}
+.stat-note{
+  margin-top:auto;padding-top:14px;border-top:1px solid var(--line);
+  display:flex;justify-content:space-between;gap:24px;
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:var(--muted)
+}
+
+.sec--cv{justify-content:flex-start}
+.sec--cv .cv-list{flex:0 0 auto;align-content:start}
+.sec--cv .edu{margin-top:auto}
+
+/* 右侧三行补回副标题，并均匀分布 */
+.sr{
+  display:grid;grid-template-columns:auto 1fr;grid-template-rows:auto auto;
+  gap:2px 24px;align-items:center;
+  padding:clamp(14px,2.6vh,26px) 0
+}
+.sr-v{grid-row:1 / span 2;align-self:center}
+.sr-l{grid-column:2;grid-row:1;text-align:right;font-size:12.5px;color:var(--ink)}
+.sr-sub{grid-column:2;grid-row:2;text-align:right;display:block;font-size:11px;color:var(--muted);line-height:1.4}
+.stat-side{height:100%;justify-content:space-evenly}
+
+/* 经历：四段均分整屏 */
+.sec--cv{justify-content:flex-start}
+.sec--cv .cv-list{flex:1;align-content:space-evenly}
+.sec--cv .edu{margin-top:0;padding-top:14px}
+
+/* 数据页：大字再大一点，右侧三行拉开撑住版面 */
+.sh-v .stat-n{font-size:clamp(96px,12vw,200px)}
+.sh-l{margin-top:clamp(16px,2.6vh,28px)}
+.sr{padding:clamp(20px,3.6vh,38px) 0}
+.stat-hero{padding-top:clamp(4px,1vh,12px)}
+
+/* 经历改成单列时间轴：四行铺满，信息一行读完 */
+.sec--cv .cv-list{
+  display:block;flex:1;border-top:1px solid var(--ink)
+}
+.sec--cv .cv{
+  display:grid;grid-template-columns:132px minmax(0,300px) minmax(0,1fr);
+  gap:0 clamp(20px,2.6vw,44px);align-items:start;
+  padding:clamp(14px,2.4vh,26px) 0;border-bottom:1px solid var(--line-soft)
+}
+.cv-time{padding-top:2px;font-size:11px;color:var(--muted)}
+.cv-org{font-size:clamp(15px,1.3vw,19px);line-height:1.35}
+.cv-title{font-size:11.5px;margin-top:3px}
+.cv-pts{margin-top:0;display:grid;gap:3px}
+.cv-pts li{font-size:12px;line-height:1.65}
+.sec--cv .edu{
+  margin-top:auto;padding-top:14px;border-top:1px solid var(--line);
+  grid-template-columns:132px minmax(0,1fr)
+}

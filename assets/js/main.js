@@ -41,13 +41,29 @@
     }).join("");
 
     var sg = $("#statGrid");
-    if (sg) sg.innerHTML = S.stats.map(function (s) {
-      return '<article class="stat">' +
-        '<p class="stat-v"><span class="stat-n" data-n="' + s.n + '" data-dec="' + (s.dec || 0) + '">0</span><span class="stat-s">' + esc(s.suffix) + "</span></p>" +
-        '<p class="stat-l">' + esc(s.label) + "</p>" +
-        '<p class="stat-sub">' + esc(s.sub) + "</p>" +
-        "</article>";
-    }).join("");
+    if (sg && S.stats && S.stats.length) {
+      var hero = S.stats[0];
+      var rest = S.stats.slice(1);
+      sg.innerHTML =
+        '<div class="stat-hero">' +
+          '<p class="sh-v">' +
+            '<span class="stat-n" data-n="' + hero.n + '" data-dec="' + (hero.dec || 0) + '">0</span>' +
+            '<span class="sh-s">' + esc(hero.suffix) + "</span>" +
+          "</p>" +
+          '<p class="sh-l">' + esc(hero.label) + "</p>" +
+          '<p class="sh-sub">' + esc(hero.sub || "") + "</p>" +
+        "</div>" +
+        '<div class="stat-side">' +
+          rest.map(function (st) {
+            return '<div class="sr">' +
+              '<p class="sr-v"><span class="stat-n" data-n="' + st.n + '" data-dec="' + (st.dec || 0) + '">0</span>' +
+                '<span class="sr-s">' + esc(st.suffix) + "</span></p>" +
+              '<p class="sr-l">' + esc(st.label) + "</p>" +
+              '<p class="sr-sub">' + esc(st.sub || "") + "</p>" +
+              "</div>";
+          }).join("") +
+        "</div>";
+    }
 
     var dl = $("#domesticList");
     if (dl) dl.innerHTML = S.domestic.map(function (w, i) {
@@ -112,14 +128,14 @@
     var cv = $("#cvList");
     if (cv) cv.innerHTML = S.timeline.map(function (j) {
       return '<article class="cv">' +
-        '<p class="cv-time">' + esc(j.from) + " — " + esc(j.to) + "</p>" +
-        "<div>" +
-          '<p class="cv-org">' + esc(j.org) + "</p>" +
-          '<p class="cv-title">' + esc(j.title) + "</p>" +
-          '<ul class="cv-pts">' + j.points.map(function (p) { return "<li>" + esc(p) + "</li>"; }).join("") + "</ul>" +
-        "</div>" +
-        "</article>";
-    }).join("");
+        '<p class="cv-time">' + esc(j.from) + ' — ' + esc(j.to) + '</p>' +
+        '<div class="cv-head">' +
+          '<p class="cv-org">' + esc(j.org) + '</p>' +
+          '<p class="cv-title">' + esc(j.title) + '</p>' +
+        '</div>' +
+        '<ul class="cv-pts">' + j.points.map(function (p) { return '<li>' + esc(p) + '</li>'; }).join('') + '</ul>' +
+        '</article>';
+    }).join('');
 
     var edu = $("#edu");
     if (edu) edu.innerHTML =
